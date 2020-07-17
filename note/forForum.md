@@ -1,7 +1,5 @@
-## IntelliJ IDEAもダウンロードしてみる
+## IntelliJ で作ってみる
 
-https://www.jetbrains.com/idea/download/#section=mac
-> Communityの方をダウンロード！無料！
-
-まずこれで、Kotlinを書いてそれからIDE（AndroindTool）に移行していこうかなーと考え中。
-ミニアプリ作ってKotlinになれる！（OOP理解にもつなげていく）
+1. New Project
+2. Kotlin
+3. Kotlin - JVM
