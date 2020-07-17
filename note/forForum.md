@@ -30,3 +30,8 @@ $ brew cask install android-sdk
 
 もしくは、Update しても良いかも。やり方はコーヒーカップのやつを押してどうのこうの。コーヒーマーク嫌いなのでやりたくない。
 呼んでもないのに Setting の中に入ってきたりするので Java はそういうとこやぞと思います。
+
+もしくは、IntelliJ の JDK フォルダ参照する場所から新しい JDK をひっぱくればおｋ
+基本的に
+USER > Library > JAVA > virtualJAVA
+に有

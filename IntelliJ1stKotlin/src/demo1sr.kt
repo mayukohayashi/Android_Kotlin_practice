@@ -1,3 +1,4 @@
 fun main(){
-    print(19)
+    println("Welcome to kotlin")
+    print("mayuko")
 }
