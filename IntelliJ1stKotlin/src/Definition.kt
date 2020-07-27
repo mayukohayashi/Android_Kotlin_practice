@@ -1,2 +1,2 @@
-var list = arrayOf()
-var list = array()
+// var list = arrayOf()
+// var list = array()
