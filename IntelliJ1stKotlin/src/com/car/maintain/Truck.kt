@@ -24,6 +24,11 @@ class Truck:CarOptions{
         return this.getPrice()!! - (this.milesDrive!!.toDouble() * 10 * 0.8 )
     }
 
+    fun getCarPriceWrapper():Double{
+        // super.親クラスを見ている（this.はそのクラス）
+        return super.getCarPrice()
+    }
+
     /*
     // ここにはアクセスできない（CarOptions.ktのPriceがPrivateな為）
     // （Protectedであった場合）アクセスはできる
@@ -41,6 +46,7 @@ fun main() {
     println(truck1.price)
      */
     println(truck1.getCarPrice())
+    println(truck1.getCarPriceWrapper())
 
     val truck2 = Truck("Audi", 2010, 30000.0, 10, "Garbage")
     println(truck2.owner)
