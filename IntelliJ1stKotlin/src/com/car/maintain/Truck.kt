@@ -38,6 +38,13 @@ class Truck:CarOptions{
     */
 }
 
+
+fun Truck.getCarPriceWrapper():Double{
+    // class内にないのでsuperは使えない
+    return this.getCarPrice()
+}
+
+
 fun main() {
     val truck1 = Truck("BMW", 2000, 10000.0, 102, "Hayashi", "Dump")
     println(truck1.model)
