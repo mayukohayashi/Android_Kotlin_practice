@@ -20,6 +20,10 @@ class Truck:CarOptions{
         this.subType = subType
     }
 
+    override fun getCarPrice():Double {
+        return this.getPrice()!! - (this.milesDrive!!.toDouble() * 10 * 0.8 )
+    }
+
     /*
     // ここにはアクセスできない（CarOptions.ktのPriceがPrivateな為）
     // （Protectedであった場合）アクセスはできる

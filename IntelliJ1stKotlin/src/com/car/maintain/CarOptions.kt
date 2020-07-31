@@ -28,8 +28,14 @@ open class CarOptions(){
         this.milesDrive = milesDrive
     }
 
-    fun getCarPrice():Double {
+    // overrideの為にopenする
+    open fun getCarPrice():Double {
         return this.price!! - (this.milesDrive!!.toDouble() * 10)
+    }
+
+    // override先でpriceが得られない為、functionを作る
+    fun getPrice():Double{
+        return this.price!!
     }
 
 
