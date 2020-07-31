@@ -19,11 +19,23 @@ class Truck:CarOptions{
 
         this.subType = subType
     }
+
+    /*
+    // ここにはアクセスできない（CarOptions.ktのPriceがPrivateな為）
+    // （Protectedであった場合）アクセスはできる
+    fun showPrice(){
+        println(this.price)
+    }
+    */
 }
 
 fun main() {
     val truck1 = Truck("BMW", 2000, 10000.0, 102, "Hayashi", "Dump")
     println(truck1.model)
+    /*
+    // privateでもprotectedでもアクセスされない
+    println(truck1.price)
+     */
     println(truck1.getCarPrice())
 
     val truck2 = Truck("Audi", 2010, 30000.0, 10, "Garbage")

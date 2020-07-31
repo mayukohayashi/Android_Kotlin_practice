@@ -7,7 +7,9 @@ open class CarOptions(){
 
     var type:String?=null
     var model:Int?=null
-    var price:Double?=null
+    // アクセスできない
+    // もし`protected`にした場合、アクセスはできる
+    private var price:Double?=null
     var milesDrive:Int?=0
     var owner:String?=null
 
