@@ -4,35 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/holo_green_light"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="161dp"
-        android:layout_marginTop="78dp"
-        android:layout_marginEnd="162dp"
-        android:layout_marginBottom="107dp"
-        android:text="@string/button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
     <EditText
-        android:id="@+id/editTextDate2"
+        android:id="@+id/txtDataOfBirth"
         android:layout_width="258dp"
         android:layout_height="53dp"
-        android:layout_marginStart="77dp"
-        android:layout_marginTop="155dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="141dp"
         android:layout_marginEnd="77dp"
-        android:layout_marginBottom="136dp"
+        android:layout_marginBottom="538dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/enter_your_year_of_birth"
         android:inputType="date"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -41,13 +28,33 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="177dp"
-        android:layout_marginTop="135dp"
-        android:layout_marginEnd="177dp"
-        android:layout_marginBottom="145dp"
-        android:text="@string/textview"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="413dp"
+        android:layout_marginEnd="161dp"
+        android:layout_marginBottom="299dp"
+        android:text="Your Age is....."
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDate2" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btGetAge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="147dp"
+        android:layout_marginTop="613dp"
+        android:layout_marginEnd="145dp"
+        android:layout_marginBottom="70dp"
+        android:background="@android:color/holo_green_dark"
+        android:text="Get your Age"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
