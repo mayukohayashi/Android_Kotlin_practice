@@ -14,10 +14,14 @@ class MainActivity : AppCompatActivity() {
 
             // ここにボタンをクリックしたときに走るCode
 
-            val userDataOfTheBirth = txtDataOfBirth.text.toString()
-                // txtDataOfBirthの中のテキストをStringにしたもの
+            val userDataOfBirth = Integer.parseInt(txtDataOfBirth.text.toString())
+                // txtDataOfBirthの中のテキストをStringにしたものをIntegerに。
+
             val currentYear = Calendar.getInstance().get(Calendar.YEAR)
                 // 今年をカレンダーから持ってくる
+
+            val userAge = currentYear - userDataOfBirth
+                // 現在のYearからユーザーの誕生年を引いて、年齢を出す
 
         }
     }
