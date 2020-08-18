@@ -142,10 +142,16 @@ class MainActivity : AppCompatActivity() {
 
         // 勝った時になにするか
         if (winner == 1) {
+            player1WonCounts += 1
             Toast.makeText(this, "Player 1 won the game!", Toast.LENGTH_LONG).show()
-        } else if ( winner == 2) {
-            Toast.makeText(this, "Player 2 won the game!", Toast.LENGTH_LONG).show()
 
+            // Restart gameする
+            restartGame()
+
+        } else if ( winner == 2) {
+            player2WonCounts += 1
+            Toast.makeText(this, "Player 2 won the game!", Toast.LENGTH_LONG).show()
+            restartGame()
         }
     }
 
@@ -161,6 +167,11 @@ class MainActivity : AppCompatActivity() {
             if ( !(player1Selected.contains(cellID) || player2Selected.contains(cellID)) ) {
                 emptyCells.add(cellID)
             }
+        }
+
+        // どちらも勝てない状況になった際、とりあえずリスタートする
+        if (emptyCells.size == 0) {
+            restartGame()
         }
 
         // Random from kotlin
@@ -186,6 +197,43 @@ class MainActivity : AppCompatActivity() {
         }
 
         playGame(cellID, buttonSelected)
+    }
 
+    // counterをつける
+    var player1WonCounts = 0
+    var player2WonCounts = 0
+
+
+    // ゲームをリスタートさせる
+    fun restartGame() {
+        activePlayer = 1
+        player1Selected.clear()
+        player2Selected.clear()
+
+        for (cellID in 1..9) {
+            var buttonSelected:Button?
+
+            buttonSelected = when(cellID) {
+                1 -> button1
+                2 -> button2
+                3 -> button3
+                4 -> button4
+                5 -> button5
+                6 -> button6
+                7 -> button7
+                8 -> button8
+                9 -> button9
+                else -> { button1 }
+            }
+
+            buttonSelected!!.text = ""
+            buttonSelected.setBackgroundResource(R.color.buttonColor)
+
+            // ボタンおせるように戻す
+            buttonSelected.isEnabled = true
+        }
+
+        // 結果をみせる
+        Toast.makeText(this, "Player1: $player1WonCounts, Player2: $player2WonCounts", Toast.LENGTH_LONG).show()
     }
 }
