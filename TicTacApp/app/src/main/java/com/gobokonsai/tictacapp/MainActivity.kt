@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -75,5 +76,70 @@ class MainActivity : AppCompatActivity() {
 
         // 押されたボタンには二度と触れたくないよという気持ち
         buttonSelected.isEnabled = false
+
+        // 勝者わかるようにしたい
+        checkWinner()
+    }
+
+    fun checkWinner(){
+
+        // 最初はWinnerわからんとこからスタート
+        var winner = -1
+
+        // row 1
+        if (player1Selected.contains(1) && player1Selected.contains(2) && player1Selected.contains(3)) {
+            winner = 1
+        }
+        if (player2Selected.contains(1) && player2Selected.contains(2) && player2Selected.contains(3)) {
+            winner = 2
+        }
+
+        // row 2
+        if (player1Selected.contains(4) && player1Selected.contains(5) && player1Selected.contains(6)) {
+            winner = 1
+        }
+        if (player2Selected.contains(4) && player2Selected.contains(5) && player2Selected.contains(6)) {
+            winner = 2
+        }
+
+        // row 3
+        if (player1Selected.contains(7) && player1Selected.contains(8) && player1Selected.contains(9)) {
+            winner = 1
+        }
+        if (player2Selected.contains(7) && player2Selected.contains(8) && player2Selected.contains(9)) {
+            winner = 2
+        }
+
+        // col1
+        if (player1Selected.contains(1) && player1Selected.contains(4) && player1Selected.contains(7)) {
+            winner = 1
+        }
+        if (player2Selected.contains(1) && player2Selected.contains(4) && player2Selected.contains(7)) {
+            winner = 2
+        }
+
+        // col2
+        if (player1Selected.contains(2) && player1Selected.contains(5) && player1Selected.contains(8)) {
+            winner = 1
+        }
+        if (player2Selected.contains(2) && player2Selected.contains(5) && player2Selected.contains(8)) {
+            winner = 2
+        }
+
+        // col3
+        if (player1Selected.contains(3) && player1Selected.contains(6) && player1Selected.contains(9)) {
+            winner = 1
+        }
+        if (player2Selected.contains(3) && player2Selected.contains(6) && player2Selected.contains(9)) {
+            winner = 2
+        }
+
+        // 勝った時になにするか
+        if (winner == 1) {
+            Toast.makeText(this, "Player 1 won the game!", Toast.LENGTH_LONG).show()
+        } else if ( winner == 2) {
+            Toast.makeText(this, "Player 2 won the game!", Toast.LENGTH_LONG).show()
+
+        }
     }
 }
