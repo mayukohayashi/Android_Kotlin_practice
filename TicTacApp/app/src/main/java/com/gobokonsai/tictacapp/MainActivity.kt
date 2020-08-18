@@ -6,6 +6,9 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlin.random.Random
+
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -66,6 +69,9 @@ class MainActivity : AppCompatActivity() {
 
             // 交互にプレイできるようにする
             activePlayer = 2
+
+            // player2がautoplayするようにする
+            autoplay()
 
         } else {
             buttonSelected.text = "O"
@@ -141,5 +147,45 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, "Player 2 won the game!", Toast.LENGTH_LONG).show()
 
         }
+    }
+
+    fun autoplay() {
+
+        // Selectされていないタイルを探す
+        var emptyCells = ArrayList<Int>()
+
+        // cellID 1-9チェック
+        for ( cellID in 1..9 ){
+
+            // プレイヤー１か２が選んでいないものがあった場合emptyCellにcellID追加
+            if ( !(player1Selected.contains(cellID) || player2Selected.contains(cellID)) ) {
+                emptyCells.add(cellID)
+            }
+        }
+
+        // Random from kotlin
+        val r = Random
+        // randomIndexでインデックスをとる
+        val randomIndex = r.nextInt(emptyCells.size)
+        // cellIDに反映、enptyCellsにrandomIndexでとったIDをArrayList
+        val cellID = emptyCells[randomIndex]
+
+        var buttonSelected:Button?
+
+        buttonSelected = when(cellID) {
+            1 -> button1
+            2 -> button2
+            3 -> button3
+            4 -> button4
+            5 -> button5
+            6 -> button6
+            7 -> button7
+            8 -> button8
+            9 -> button9
+            else -> { button1 }
+        }
+
+        playGame(cellID, buttonSelected)
+
     }
 }
