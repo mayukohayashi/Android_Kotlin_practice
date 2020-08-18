@@ -38,5 +38,42 @@ class MainActivity : AppCompatActivity() {
         // CellID作ったから見る
         Log.d("buttonClick:cellID", cellID.toString())
 
+        playGame(cellID, buttonSelected)
+        // 引数もいれてもってく
+
+    }
+
+    // プレイヤーは何人いるか
+    var activePlayer = 1
+
+    // Playerが選んだボタンCellIDをArrayListできるようにする
+    var player1Selected = ArrayList<Int>()
+    var player2Selected = ArrayList<Int>()
+
+    fun playGame(cellID: Int, buttonSelected: Button){
+        // ゲームプレイに必要なコードをここに
+
+        // 動かしているPlayerが1の場合、そしてその他の場合
+        if (activePlayer == 1) {
+            buttonSelected.text = "X"
+
+            // setBackgoundColorだと、カラーそのものをハードコードしないといけないのでResourceで
+            buttonSelected.setBackgroundResource(R.color.blue)
+
+            // ArrayListにaddしていく
+            player1Selected.add(cellID)
+
+            // 交互にプレイできるようにする
+            activePlayer = 2
+
+        } else {
+            buttonSelected.text = "O"
+            buttonSelected.setBackgroundResource(R.color.red)
+            player2Selected.add(cellID)
+            activePlayer = 1
+        }
+
+        // 押されたボタンには二度と触れたくないよという気持ち
+        buttonSelected.isEnabled = false
     }
 }
