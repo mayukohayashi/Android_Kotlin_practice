@@ -31,6 +31,7 @@ class MainActivity : AppCompatActivity() {
         //
         when (buttonSelected.id) {
             bt0.id -> {
+                // TODO: 最初につかない、その後.が付く場合はOK
                 buttonClickedValue += "0"
             }
             bt1.id -> {
@@ -61,11 +62,11 @@ class MainActivity : AppCompatActivity() {
                 buttonClickedValue += "9"
             }
             btDot.id -> {
-                // TODO: 小数点は１個だけしか使えないようにする
+                // TODO: 小数点は１個だけしか使えないようにして
                 buttonClickedValue += "."
             }
             btPlusMins.id -> {
-                // TODO: -が量産される
+                // TODO: -が量産されるのやめて
                 buttonClickedValue = "-$buttonClickedValue"
             }
         }
