@@ -71,7 +71,7 @@
                 android:layout_height="30pt"
                 android:layout_weight="1"
                 android:background="@color/operationButton"
-                android:onClick="btNumberEvent"
+                android:onClick="btOpEvent"
                 android:text="/"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
@@ -123,7 +123,7 @@
                 android:background="@color/operationButton"
                 android:text="*"
                 android:textColor="@color/white"
-                android:onClick="btNumberEvent"
+                android:onClick="btOpEvent"
                 android:textSize="18sp" />
         </TableRow>
 
@@ -173,7 +173,7 @@
                 android:background="@color/operationButton"
                 android:text="-"
                 android:textColor="@color/white"
-                android:onClick="btNumberEvent"
+                android:onClick="btOpEvent"
                 android:textSize="18sp" />
         </TableRow>
 
@@ -223,8 +223,7 @@
                 android:background="@color/operationButton"
                 android:text="+"
                 android:textColor="@color/white"
-                android:onClick="btNumberEvent"
-
+                android:onClick="btOpEvent"
                 android:textSize="18sp" />
         </TableRow>
     </TableLayout>
@@ -265,7 +264,7 @@
             android:background="@color/operationButton"
             android:text="="
             android:textColor="@color/white"
-            android:onClick="btNumberEvent"
+            android:onClick="btEqualEvent"
             android:textSize="18sp" />
     </LinearLayout>
 </LinearLayout>

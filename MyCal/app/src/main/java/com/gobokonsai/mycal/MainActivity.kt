@@ -14,6 +14,14 @@ class MainActivity : AppCompatActivity() {
 
     fun btNumberEvent(view: View) {
 
+        //もしこれから行う計算が新たなもの（数字をいれたい）で場合、画面は空の状態でなければならない
+        if (isNewOperation){
+            editTextShowNumber.setText("")
+        }
+
+        // 数字を入力したいので、falseに変えろ
+        isNewOperation = false
+
         // 選ばれたボタンはどれか
         val buttonSelected = view as Button
 
@@ -57,10 +65,72 @@ class MainActivity : AppCompatActivity() {
                 buttonClickedValue += "."
             }
             btPlusMins.id -> {
+                // TODO: -が量産される
                 buttonClickedValue = "-$buttonClickedValue"
             }
         }
 
         editTextShowNumber.setText(buttonClickedValue)
+    }
+
+    // 何の計算をするか変数をつくる
+    var op = "*"
+
+    // 入力されていた数字を保持
+    var oldNumber = ""
+
+    // 計算できる状態か
+    var isNewOperation = true
+
+    fun btOpEvent (view: View) {
+
+        val buttonSelected = view as Button
+
+        when (buttonSelected.id) {
+            btMul.id -> {
+
+                op = "*"
+            }
+            btDiv.id -> {
+
+                op = "/"
+            }
+            btSub.id -> {
+
+                op = "-"
+            }
+            btSum.id -> {
+
+                op = "+"
+            }
+        }
+
+        oldNumber = editTextShowNumber.text.toString()
+
+        //次の計算を行うためTrueに
+        isNewOperation = true
+
+    }
+
+    fun btEqualEvent(view: View) {
+        var newNumber = editTextShowNumber.text.toString()
+        var resultNumber:Float? = null
+
+        when(op) {
+            "*" -> {
+                resultNumber = oldNumber.toFloat() * newNumber.toFloat()
+            }
+            "/" -> {
+                resultNumber = oldNumber.toFloat() / newNumber.toFloat()
+            }
+            "-" -> {
+                resultNumber = oldNumber.toFloat() - newNumber.toFloat()
+            }
+            "+" -> {
+                resultNumber = oldNumber.toFloat() + newNumber.toFloat()
+            }
+        }
+        editTextShowNumber.setText(resultNumber.toString())
+        isNewOperation = true
     }
 }
