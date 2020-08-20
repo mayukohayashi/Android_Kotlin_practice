@@ -135,5 +135,8 @@ class MainActivity : AppCompatActivity() {
         isNewOperation = true
     }
 
-    fun btPercentEvent(view: View) {}
+    fun btPercentEvent(view: View) {
+        var showedNumber:Float = editTextShowNumber.text.toString().toFloat() / 100
+        editTextShowNumber.setText(showedNumber.toString())
+    }
 }
