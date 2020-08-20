@@ -62,8 +62,10 @@ class MainActivity : AppCompatActivity() {
                 buttonClickedValue += "9"
             }
             btDot.id -> {
-                // TODO: 小数点は１個だけしか使えないようにして
                 buttonClickedValue += "."
+
+                // isClickableとかいう便利なやつを使って、一回押したらもう押せないようにするよ
+                btDot.isClickable = false
             }
             btPlusMins.id -> {
                 // TODO: -が量産されるのやめて
@@ -143,6 +145,10 @@ class MainActivity : AppCompatActivity() {
 
     fun btClearEvent(view: View) {
         editTextShowNumber.setText("0")
+
         isNewOperation = true
+
+        // dotも押せるようする
+        btDot.isClickable = true
     }
 }
