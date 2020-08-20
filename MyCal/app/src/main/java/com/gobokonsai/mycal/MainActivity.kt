@@ -134,4 +134,6 @@ class MainActivity : AppCompatActivity() {
         editTextShowNumber.setText(resultNumber.toString())
         isNewOperation = true
     }
+
+    fun btPercentEvent(view: View) {}
 }
