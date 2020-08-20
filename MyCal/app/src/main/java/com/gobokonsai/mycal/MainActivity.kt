@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlin.math.abs
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,6 +20,9 @@ class MainActivity : AppCompatActivity() {
             editTextShowNumber.setText("")
         }
 
+        // マイナスプリント最初はされないです
+        var isMinusPrinted = false
+
         // 数字を入力したいので、falseに変えろ
         isNewOperation = false
 
@@ -28,7 +32,6 @@ class MainActivity : AppCompatActivity() {
         // クリックされたボタンの値をStringとしてもたせる。最初に見える上部テキストデフォルト設定
         var buttonClickedValue:String = editTextShowNumber.text.toString()
 
-        //
         when (buttonSelected.id) {
             bt0.id -> {
                 // TODO: 最初につかない、その後.が付く場合はOK
@@ -61,15 +64,27 @@ class MainActivity : AppCompatActivity() {
             bt9.id -> {
                 buttonClickedValue += "9"
             }
+
             btDot.id -> {
                 buttonClickedValue += "."
 
                 // isClickableとかいう便利なやつを使って、一回押したらもう押せないようにするよ
                 btDot.isClickable = false
             }
+
             btPlusMins.id -> {
-                // TODO: -が量産されるのやめて
-                buttonClickedValue = "-$buttonClickedValue"
+                // -のついていないabsolute値を出す。数字
+                val resultWithoutMinus = abs(buttonClickedValue.toInt()) // Math.absがJavaの書き方っぽい
+
+                if (!isMinusPrinted){
+
+                    buttonClickedValue = "-$resultWithoutMinus" // - 123とかなれる
+                    isMinusPrinted = true // trueにして　-がプリントされてる状態だよと示す
+                } else {
+
+                    buttonClickedValue = resultWithoutMinus.toString() // 123だけの状態
+                    isMinusPrinted = false
+                }
             }
         }
 
@@ -80,7 +95,7 @@ class MainActivity : AppCompatActivity() {
     var op = "*"
 
     // 入力されていた数字を保持
-    var oldNumber = ""
+    var oldValue = ""
 
     // 計算できる状態か
     var isNewOperation = true
@@ -108,7 +123,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        oldNumber = editTextShowNumber.text.toString()
+        oldValue = editTextShowNumber.text.toString()
 
         //次の計算を行うためTrueに
         isNewOperation = true
@@ -116,24 +131,24 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun btEqualEvent(view: View) {
-        var newNumber = editTextShowNumber.text.toString()
-        var resultNumber:Float? = null
+        var newValue = editTextShowNumber.text.toString()
+        var resultValue:Float? = null
 
         when(op) {
             "*" -> {
-                resultNumber = oldNumber.toFloat() * newNumber.toFloat()
+                resultValue = oldValue.toFloat() * newValue.toFloat()
             }
             "/" -> {
-                resultNumber = oldNumber.toFloat() / newNumber.toFloat()
+                resultValue = oldValue.toFloat() / newValue.toFloat()
             }
             "-" -> {
-                resultNumber = oldNumber.toFloat() - newNumber.toFloat()
+                resultValue = oldValue.toFloat() - newValue.toFloat()
             }
             "+" -> {
-                resultNumber = oldNumber.toFloat() + newNumber.toFloat()
+                resultValue = oldValue.toFloat() + newValue.toFloat()
             }
         }
-        editTextShowNumber.setText(resultNumber.toString())
+        editTextShowNumber.setText(resultValue.toString())
         isNewOperation = true
     }
 
