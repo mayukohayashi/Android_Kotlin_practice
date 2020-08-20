@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.konsaigobo.mylocationapp">
 
@@ -36,6 +37,7 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
+
     </application>
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />

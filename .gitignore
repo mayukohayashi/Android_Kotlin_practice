@@ -34,12 +34,3 @@ output.json
 # NDK
 obj/
 .externalNativeBuild
-
-# by auto
-/local.properties
-/.idea/workspace.xml
-/.idea/libraries
-.DS_Store
-/build
-/captures
-.externalNativeBuild
