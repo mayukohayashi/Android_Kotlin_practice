@@ -34,3 +34,6 @@ output.json
 # NDK
 obj/
 .externalNativeBuild
+
+# 未だ不確かなんだがこれignoreしてええんか？CIとかだとなんか不具合起きやすい？
+gradle.properties
