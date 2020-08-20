@@ -136,7 +136,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun btPercentEvent(view: View) {
-        var showedNumber:Float = editTextShowNumber.text.toString().toFloat() / 100
+        val showedNumber:Float = editTextShowNumber.text.toString().toFloat() / 100
         editTextShowNumber.setText(showedNumber.toString())
+        isNewOperation = true
+    }
+
+    fun btClearEvent(view: View) {
+        editTextShowNumber.setText("0")
+        isNewOperation = true
     }
 }

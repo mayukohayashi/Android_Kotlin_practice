@@ -39,7 +39,7 @@
                 android:layout_marginRight="1pt"
                 android:layout_weight="1"
                 android:background="@color/lightGrey"
-                android:onClick="btNumberEvent"
+                android:onClick="btClearEvent"
                 android:text="AC"
                 android:textSize="18sp" />
 
